@@ -11,7 +11,7 @@ namespace cpp_ros_test_example {
         int get();
 
         private:
-        int counter;
+        int counter = 0;
     };
 };
 
