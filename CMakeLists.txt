@@ -200,9 +200,9 @@ target_link_libraries(${PROJECT_NAME}_node
 if(CATKIN_ENABLE_TESTING)
   ## Add gtest based cpp test target and link libraries
   catkin_add_gtest(${PROJECT_NAME}-counter-test test/counter_test.cpp)
-  # if(TARGET ${PROJECT_NAME}-test)
-  #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-  # endif()
+  if(TARGET ${PROJECT_NAME}-counter-test)
+    target_link_libraries(${PROJECT_NAME}-counter-test example_lib)
+  endif()
 
   ## Add folders to be run by python nosetests
   # catkin_add_nosetests(test)
