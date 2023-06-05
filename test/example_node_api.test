@@ -1,0 +1,27 @@
+<launch>
+  <node pkg="cpp_ros_test_example" type="example_counter_node" name="example_node" />
+
+  <test test-name="advertisetest_test" pkg="rostest" type="advertisetest" time-limit="7.0" retry="3">
+    <rosparam>
+      topics:
+      - name: /example_node/value
+        type: std_msgs/Int32
+        timeout: 2.
+      services:
+      - name: /example_node/next
+        type: std_srvs/Trigger
+        timeout: 2.
+      - name: /example_node/previous
+        type: std_srvs/Trigger
+        timeout: 2.
+    </rosparam>
+  </test>
+
+  <param name="hztest/topic" value="/example_node/value" />
+  <param name="hztest/hz" value="5.0" />
+  <param name="hztest/hzerror" value="0.5" />
+  <param name="hztest/test_duration" value="5.0" />
+  <test test-name="hztest_test" pkg="rostest" type="hztest" name="hztest" />
+
+  <!-- More standard test nodes on http://wiki.ros.org/rostest/Nodes -->
+</launch>
