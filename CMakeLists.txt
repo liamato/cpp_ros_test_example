@@ -209,4 +209,25 @@ if(CATKIN_ENABLE_TESTING)
 
   find_package(rostest REQUIRED)
   add_rostest(test/example_node_api.test)
+
+  add_rostest_gtest(
+    example_node_default_pub_test
+    test/default_pub/example_node_default_pub.test
+    test/default_pub/example_node_default_pub_test.cpp
+  )
+  target_link_libraries(example_node_default_pub_test ${catkin_LIBRARIES})
+
+  add_rostest_gtest(
+    example_node_next_service_test
+    test/next_service/example_node_next_service.test
+    test/next_service/example_node_next_service_test.cpp
+  )
+  target_link_libraries(example_node_next_service_test ${catkin_LIBRARIES})
+
+  add_rostest_gtest(
+    example_node_prev_service_test
+    test/prev_service/example_node_prev_service.test
+    test/prev_service/example_node_prev_service_test.cpp
+  )
+  target_link_libraries(example_node_prev_service_test ${catkin_LIBRARIES})
 endif()

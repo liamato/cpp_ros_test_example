@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="cpp_ros_test_example" type="example_counter_node" name="example_node" />
+  <test test-name="example_node_default_pub_test" pkg="cpp_ros_test_example" type="example_node_default_pub_test" />
+</launch>
